@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Tailwind v3 approach  */
+/* @layer utilities {
+    .font-inter {
+        font-family: var(--font-inter), sans-serif;
+    }
+    .font-rubik {
+        font-family: var(--font-rubik), sans-serif;
+    }
+} */
+
+/* Tailwind v4 */
+/* All custom values are defined in @theme (there's no 'tailwind.config.js' for config)  */
+@theme {
+    --font-inter: var(--font-inter), sans-serif;
+    --font-rubik: var(--font-rubik), sans-serif;
+}
+
