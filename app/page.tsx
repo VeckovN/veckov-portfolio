@@ -1,11 +1,20 @@
-// import Image from "next/image";
+
+'use client'; //Tells Next.js that is 'client component'
+
+import { useRef } from "react";;
+import Header from "@/components/ui/Header";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+
 
 export default function Home() {
+  const sectionRefs = useRef<{ [key:string]: HTMLElement | null}>({});
   return (
-    <>
-      <h2 className="font-rubik font-semibold text-4xl">
-        Veckov Portfolio
-      </h2>
-    </>
+    <div className="">
+      <Header sectionRefs={sectionRefs}/>
+      <Hero sectionRef={(el => sectionRefs.current['home'] = el)}/>
+      <About sectionRef={(el => sectionRefs.current['about'] = el)}/>
+
+    </div>
   );
 }
