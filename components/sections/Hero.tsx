@@ -1,10 +1,18 @@
+'use client';
 
 import Image from 'next/image';
 import TreesSvg from '../../public/images/Trees.svg';
 
-const Hero = ({sectionRef}: {sectionRef: (el: HTMLElement | null)=> void}) => {
+const Hero = () => {
+    const ScrollToProjectSection = () => {
+        const element = document.getElementById('projects');
+        if(element){
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
     return (
-        <section ref={sectionRef} id='section-hero' className='relative min-h-screen w-full bg-hero'>
+        <section id='home' className='relative min-h-screen w-full bg-hero'>
 
             {/* Github Glow Icon */}
             <div className='absolute right-[5%] top-[10%]'>
@@ -54,9 +62,9 @@ const Hero = ({sectionRef}: {sectionRef: (el: HTMLElement | null)=> void}) => {
                 </svg>
             </div>
 
-            <div className='flex justify-center items-start min-h-screen'>
+            {/* <div className='flexa justify-centera items-starta min-h-screena'> */}
             {/* center - context */}
-                <div className='max-w-[1280px] w-full mx-auto h-full px-2 bg-blue-900a pt-[30vh]'>
+                <div className='px-2 max-w-[1280px] w-full mx-auto h-full bg-blue-900a pt-[30vh]'>
                     
                     <div className='
                             flex flex-col items-center text-center font-inter
@@ -91,10 +99,16 @@ const Hero = ({sectionRef}: {sectionRef: (el: HTMLElement | null)=> void}) => {
                             </div>
                         </div>
 
-                        <button className='
+                        <button 
+                            className='
                                 mt-2 text-white text-sm font-rubik font-semibold border-2 py-2.5 px-7 rounded-3xl
                                 md:text-sm md:mt-3 xl:text-base
-                            '>
+                                hover:border-neon-1
+                                hover:text-neon-1
+                            '
+                            onClick={() => ScrollToProjectSection()}
+                            
+                            >
                             View Projects
                         </button>
 
@@ -109,7 +123,7 @@ const Hero = ({sectionRef}: {sectionRef: (el: HTMLElement | null)=> void}) => {
                         alt="TreesSvg"
                     />
                 </div>
-            </div>
+            {/* </div> */}
         </section>
     )
 }
