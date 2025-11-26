@@ -1,45 +1,10 @@
 
-'use client'; //this is neede to use states
+'use client';
 
 import { useEffect, useState } from "react";
 
-type SectionRefsType = { [key:string]: HTMLElement | null}
-
-const Header = ({ sectionRefs }: { sectionRefs: { current: SectionRefsType } }) => {
-
-    //Register sectionsRefs
-    //apply click login on certain click
-
-    //"Home" by default 
+const Header = () => {
     const [activeSection, setActiveSection] = useState('home');
-
-    const ScrollToSection = (sectionId: string) => {
-        console.log("sectionScrollID : ", sectionId)
-        // console.log("Ref Clicked: ", sectionRefs[sectionId].current);
-        const element = sectionRefs.current[sectionId];
-        console.log("section Element: ", element);
-
-        if(element){
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    //Initiallize Section refs
-    useEffect(() =>{
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY + 100;
-
-            for(let i= navItems.length -1; i >=0; i--){
-                const section = sectionRefs.current[navItems[i].id];
-                if(section && section.offsetTop <= scrollPosition){
-                    setActiveSection(navItems[i].id);
-                    break;
-                }
-            }
-        }
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    },[]); //when is section changed
 
     const navItems = [
         { id: 'home', label: 'Home' },
@@ -49,8 +14,34 @@ const Header = ({ sectionRefs }: { sectionRefs: { current: SectionRefsType } }) 
         { id: 'contact', label: 'Contact' }
     ]
 
+    const ScrollToSection = (sectionId: string) => {
+        //Direct dom manipulation didn't recommended but
+        //to keep page.tsx Server Compoennt it's common Next.js Patter for this scenario
+        const element = document.getElementById(sectionId);
+        if(element){
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    useEffect(() =>{
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + 100;
+
+            for(let i= navItems.length -1; i >=0; i--){
+                const section = document.getElementById(navItems[i].id);
+                if(section && section.offsetTop <= scrollPosition){
+                    setActiveSection(navItems[i].id);
+                    break;
+                }
+            }
+        }
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    },[]);
+
+
     return( 
-        <header className='fixed top-0a left-0a w-full bg-hero text-white'>    
+        <header className='fixed top-0 left-0 z-10 w-full bg-hero text-white'>    
             <div className='max-w-[1280px] h-full items-center py-4 px-10 w-full flex  justify-between mx-auto bg-red-100a'>
                 <div className='font-rubik text-xl md:text-2xl xl:text-3xl mx-2 cursor-pointer'>
                     NovakV
@@ -72,7 +63,6 @@ const Header = ({ sectionRefs }: { sectionRefs: { current: SectionRefsType } }) 
                         </button>
                     ))}
                 </nav>
-
 
                 <div className='flex flex-col md:hidden gap-y-2'>
                     <span className='h-0.5 w-6 bg-amber-50 '></span>
