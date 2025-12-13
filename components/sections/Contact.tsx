@@ -1,14 +1,13 @@
 import EmailIcon from "@/public/images/Contact/Email.svg";
 import LocationIcon from "@/public/images/Contact/location.svg"; 
-import GithubIcon from "@/public/images/Contact/contactGithub.svg"; 
 import LinkedinIcon from "@/public/images/Contact/contactLinkedin.svg"; 
-
+import GithubIcon from "@/components/ui/GithubIcon";
 import Image from "next/image";
 import ContactForm from "@/components/ui/ContactForm";
 
 const Contact = () =>{
     return(
-        <section id="contact" className='bg-red-300a pt-15 pb-10 w-full mx-auto flex flex-col items-center xl:items-start bg-about text-white'>
+        <section id="contact" className='py-10 sm:py-15 md:py-30pt-15 pb-10 w-full mx-auto flex flex-col items-center xl:items-start bg-about text-white'>
         
             <div className='bg-red-500a px-6 md:px-10 xl:px-2a max-w-[1280px] w-full mx-auto flex flex-col items-center mx-autoa'>
 
@@ -28,7 +27,12 @@ const Contact = () =>{
                         
                         <a 
                             href="mailto:novakveckovdev@gmail.com?subject=Portfolio Contact"
-                            className="flex w-full py-3 border-1 border-neon-3 rounded-lg hover:border-neon-2 cursor-pointer"
+                            className="
+                                flex w-full py-3 border-1 border-neon-3 rounded-lg cursor-pointer
+                                shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
+                                hover:border-neon-1 hover:text-neon-glow-3  hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                                transition-shadow transition-colors duration-100 ease-in-out 
+                            "
                         >
                             <Image
                                 className="w-8a h-8a ml-4"
@@ -47,7 +51,13 @@ const Contact = () =>{
                             </div>
                         </a>
 
-                        <div className="flex w-full py-3 border-1 border-neon-3 rounded-lg hover:border-neon-2">
+                        <div 
+                            className="
+                                flex w-full py-3 border-1 border-neon-3 rounded-lg cursor-pointer
+                                shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
+                                hover:border-neon-1 hover:text-neon-glow-3  hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                                transition-shadow transition-colors duration-100 ease-in-out
+                            ">
                             <Image
                                 className="w-8h h-8a ml-4"
                                 src={LocationIcon}
@@ -70,26 +80,32 @@ const Contact = () =>{
                             <a 
                                 href='https://github.com/VeckovN'
                                 target="_blank"
-                                className="p-1 border-1 border-neon-3 rounded-md"
+                                className="
+                                    p-1 border-1 border-neon-3 rounded-md cursor-pointer
+                                    shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
+                                    hover:border-neon-1 hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                                    transition-shadow duration-100 ease-in-out
+                                "
                             >
-                                <Image 
+                                <GithubIcon
                                     className='w-7 md:w-9'
-                                    src={GithubIcon}
-                                    alt="github"
-
                                 />
                             </a>
 
                             <a 
                                 href='https://rs.linkedin.com/in/novak-veckov-4299aa1a1'
                                 target="_blank"
-                                className="p-1 border-1 border-neon-3 rounded-md"
+                                className="
+                                    p-1 border-1 border-neon-3 rounded-md cursor-pointer
+                                    shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
+                                    hover:border-neon-1 hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                                    transition-shadow duration-100 ease-in-out
+                                "
                             >
                                 <Image 
                                     className='w-7 md:w-9'
                                     src={LinkedinIcon}
-                                    alt="github"
-
+                                    alt="linkedin"
                                 />
                             </a>
                         </div>

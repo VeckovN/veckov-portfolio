@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import GithubIcon from "./GithubIcon";
 
 interface ProjectCardProps {
     title: string;
@@ -7,20 +8,13 @@ interface ProjectCardProps {
     shortDesc: string;
     techList: TechListInterface[];
     techMoreCount?: number;
+    projectSource:["Personal" | "Freelance" | "Client" | "OpenSource"],
     categoryList: string[];
     listTitle: string;
     listItems: ProjectCardListItemProp[];
     image: StaticImageData;
     githubUrl?: string;
-    githubData?: {
-        url:string;
-        icon:StaticImageData
-    }
     liveUrl?: string;
-    liveInfoData?: {
-        url:string;
-        icon:StaticImageData
-    }
 }
 
 interface TechListInterface {
@@ -39,23 +33,32 @@ const ProjectCard = ({
     shortDesc,
     techList,
     techMoreCount,
+    projectSource,
     categoryList,
     listTitle,
     listItems,
     image,
-    githubData,
-    liveInfoData
+    githubUrl,
+    liveUrl
 }: ProjectCardProps) =>{
 
     return (
-        <div className="max-w-[450px] md:max-w-[580px] min-h-[1000px]a  w-fulla h-full bg-red-100 flex rounded-t-xl flex-col bg-red-100a">
-            <div className='image rounded-xl'>
+        <div className="max-w-[450px] md:max-w-[580px] min-h-[1000px]a  w-fulla h-full bg-red-100 flex rounded-t-xl flex-col">
+            <div className='relative rounded-xl'>
                 {/* include images for each breakpoint */}
                 <Image
                     src={image}
                     alt='Growiva'
                     className="w-full h-full lg:min-h-[370px]"
                 />
+
+                <div 
+                    className='
+                        bg-about text-neon-1 absolute top-2 right-2 border-1 py-1 w-16 md:py-1.5a md:w-23 text-center font-rubik 
+                        text-[9px] md:text-[13px] ashadow-[inset_0px_0px_3px_1px_var(--color-neon-glow-project)] rounded-2xl 
+                    '>
+                    {projectSource}
+                </div>  
             </div>
 
             {/* To ensure that all ProjectCard components in the same grid row 
@@ -71,7 +74,7 @@ const ProjectCard = ({
             {/* <div className=' flex-1 relative px-5 md:px-6 py-3 flex flex-col border-b border-x-1 rounded-b-xl border-neon-2 bg-project-card'> */}
                 <div className='absolute top-2 right-2 flex gap-x-2'>
                     {categoryList.map((el) => (
-                        <div key={`${el}-category`} className='text-xs md:text-[13px] font-semibold border-1 border-hero-p rounded-lg px-2 py-1 text-center'>
+                        <div key={`${el}-category`} className='text-xs md:text-[13px] font-rubik font- border-1 border-hero-p rounded-xl px-3 py-1 text-center'>
                             {el}
                         </div>
                     )
@@ -101,7 +104,7 @@ const ProjectCard = ({
                             Tech Stack
                         </h4> 
 
-                        <div className='h-[1px] w-19 md:w-26 mb-1 mx-autoa  bg-neon-3'>
+                        <div className='h-[1px] w-19 md:w-26 mb-1 mx-autoa  bg-white shadow-[0px_1px_5px_1px_var(--color-neon-glow-project)]'>
 
                         </div>
                     </div>
@@ -119,7 +122,12 @@ const ProjectCard = ({
                         </div>
 
                         {techMoreCount && (
-                            <button className='text-[9px] sm:text-xsa md:text-[13px] items-center border-1 border-neon1 h-6 px-2 md:h-8 md:px-3 rounded-xl'>
+                            <button className='
+                                h-6 px-2 md:h-8 md:px-3 rounded-xl
+                                text-[9px] md:text-[13px] items-center border-1 cursor-pointer  
+                                hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                                transition-shadow transition-colors duration-100 ease-in-out 
+                            '>
                                 +{techMoreCount} more
                             </button>
                         )
@@ -144,7 +152,12 @@ const ProjectCard = ({
                         
                     </div>
 
-                    <button className='mt-2 ml-2 font-rubik font-medium border-1 border-white px-2 py-1 md:py-[6px] rounded-2xl w-16 md:w-22 text-[9px] md:text-[13px]'>
+                    <button className='
+                        mt-2 ml-2 px-2 py-1 md:py-[6px] w-16 md:w-22 text-[9px] md:text-[13px] 
+                        font-rubik font-medium border-1 border-white rounded-2xl cursor-pointer
+                        hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                        transition-shadow transition-colors duration-100 ease-in-out 
+                    '>
                         Find more
                     </button>  
                 </div>
@@ -152,56 +165,55 @@ const ProjectCard = ({
                 {/* flex-1 → keeps button row at the bottom without stretching */}
                 <div className='flex-1'>
                      {/* GlowLine */}
-                    <div className='mt-3 md:mt-4 w-full h-[1px] bg-neon-1'></div>
+                    <div className='mt-3 md:mt-4 w-full h-[1px] bg-white shadow-[0px_1px_5px_1px_var(--color-neon-glow-project)]'></div>
                 
                     <div className="flex-1 mt-3 md:mt-4 w-full flex justify-between font-rubik">
                         <a 
-                            href={githubData?.url}
+                            href={githubUrl}
                             target="_blank"
-                            // rel="noopener noreferrer"
                             className={`
-                                ${githubData?.url ? 'visible' : 'invisible'} 
+                                ${githubUrl ? 'visible' : 'invisible'} 
                                 text-[9px] md:text-[13px] font-bold flex gap-x-1 items-center border-1 border-neon1
-                                px-1 py-1 md:px-2 md:py-2 rounded-md group
-                                hover:border-neon-1
+                                px-1 py-1 md:px-2 md:py-2 rounded-md cursor-pointer group
+                                hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                                transition-shadow transition-colors duration-100 ease-in-out 
                             `}
                         >
-                            {githubData?.icon && (
-                                <Image 
-                                    className='w-4 h-4 md:w-5 md:h-5'
-                                    src={githubData.icon}
-                                    alt="github"
+                            {githubUrl && (
+                                <GithubIcon 
+                                    className='w-4 h-4 md:w-5 md:h-5 group-hover:text-glow-3 transition-colors duration-200'
                                 />
                             )}
-                            <div className='group-hover:text-neon-1'>Source</div>
+                            <div className='group-hover:text-neon-1a'>Source</div>
                         </a>
                         <Link
                             href={`/project/${title}`} 
                             className="
                                 text-[9px] md:text-[14px] font-bold flex gap-x-1 items-center 
-                                border-1 border-neon1 px-5 py-1 md:px-8 md:py-2 rounded-md 
-                                hover:bg-neon-1
+                                border-1 px-5 py-1 md:px-8 md:py-2 rounded-md cursor-pointer
+                                hover:text-neon-glow-3 hover:shadow-[0px_0px_10px_1px_var(--color-neon-glow-project)]
+                                transition-shadow transition-colors duration-100 ease-in-out
                             "
                         >
                             View Details
                         </Link>
                     
                         <a 
-                            href={liveInfoData?.url}
+                            href={liveUrl}
                             target="_blank"
                             className={`
-                                ${liveInfoData?.url ? 'visible' : 'invisible'}  
-                                text-[9px] md:text-[13px]  font-bold flex gap-x-1 
-                                items-center border-1 border-neon1 px-4 py-1 rounded-md
-                                hover:border-neon-1
+                                ${liveUrl ? 'visible' : 'invisible'}  
+                                text-[9px] md:text-[13px] font-bold flex gap-x-1 
+                                items-center border-1 border-neon1 px-4 py-1 rounded-md cursor-pointer
+                                hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                                transition-shadow transition-colors duration-100 ease-in-out 
                             `}
                         > 
-                            {liveInfoData?.icon && (
-                                <Image
-                                    className='w-4 h-4'
-                                    src={liveInfoData.icon}
-                                    alt='live-icon'
-                                />
+                            {liveUrl && (
+                                <svg className='w-4 h-4 group-hover:text-glow-3 transition-colors duration-200' viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.69389 0.533735C5.69389 0.392179 5.75012 0.256422 5.85022 0.156327C5.95031 0.0562326 6.08607 0 6.22763 0L9.43003 0C9.57663 0 9.70971 0.0590666 9.80649 0.155139L9.80721 0.156562L9.80863 0.157274C9.90819 0.257242 9.96399 0.392647 9.96377 0.533735V3.73614C9.96377 3.8777 9.90754 4.01346 9.80744 4.11355C9.70735 4.21364 9.57159 4.26988 9.43003 4.26988C9.28848 4.26988 9.15272 4.21364 9.05263 4.11355C8.95253 4.01346 8.8963 3.8777 8.8963 3.73614V1.82181L4.46986 6.24825C4.36868 6.34253 4.23486 6.39386 4.09658 6.39142C3.95831 6.38898 3.82638 6.33296 3.72859 6.23518C3.6308 6.13739 3.57479 6.00546 3.57235 5.86718C3.56991 5.72891 3.62124 5.59509 3.71551 5.49391L8.14195 1.06747H6.22763C6.08607 1.06747 5.95031 1.01124 5.85022 0.911142C5.75012 0.811047 5.69389 0.67529 5.69389 0.533735Z" fill="#E9E9E9"/>
+                                    <path d="M1.6012 2.4913C1.45965 2.4913 1.32389 2.54753 1.2238 2.64762C1.1237 2.74772 1.06747 2.88348 1.06747 3.02503V8.36238C1.06747 8.657 1.30658 8.89611 1.6012 8.89611H6.93855C7.08011 8.89611 7.21586 8.83988 7.31596 8.73979C7.41605 8.63969 7.47229 8.50393 7.47229 8.36238V5.51579C7.47229 5.37424 7.52852 5.23848 7.62861 5.13839C7.72871 5.03829 7.86447 4.98206 8.00602 4.98206C8.14758 4.98206 8.28333 5.03829 8.38343 5.13839C8.48352 5.23848 8.53975 5.37424 8.53975 5.51579V8.36238C8.53975 8.78705 8.37106 9.19432 8.07077 9.4946C7.77049 9.79489 7.36322 9.96358 6.93855 9.96358H1.6012C1.17654 9.96358 0.769266 9.79489 0.468982 9.4946C0.168698 9.19432 0 8.78705 0 8.36238V3.02503C0 2.60037 0.168698 2.19309 0.468982 1.89281C0.769266 1.59253 1.17654 1.42383 1.6012 1.42383H4.44779C4.58934 1.42383 4.7251 1.48006 4.8252 1.58016C4.92529 1.68025 4.98152 1.81601 4.98152 1.95756C4.98152 2.09912 4.92529 2.23488 4.8252 2.33497C4.7251 2.43507 4.58934 2.4913 4.44779 2.4913H1.6012Z" fill="#E9E9E9"/>
+                                </svg>                                
                             )}
                             <div className='group-hover:text-neon-1'>Live</div>
                         </a>
