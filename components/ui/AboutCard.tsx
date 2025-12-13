@@ -22,7 +22,10 @@ const CardIcons = (category: CategoryTypes) =>{
 
 const AboutCard = ({category, context}: AboutCardProps):ReactElement => {
     return (
-        <div className='relative w-[230px] h-[80px] border-1 border-neon-2 rounded-lg flex flex-col'>
+        <div className='
+            relative w-[230px] h-[80px] border-1 border-neon-2 rounded-lg flex flex-col
+            shadow-[0px_0px_4px_1px_var(--color-neon-glow-project)]
+        '>
             <div className='px-1 absolute top-2 left-1'>
                 <Image
                     src={CardIcons(category)}

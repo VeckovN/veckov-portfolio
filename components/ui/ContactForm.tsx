@@ -44,7 +44,11 @@ const ContactForm = () =>{
                 <div className='flex flex-col flex-1 gap-y-2 text-sm md:text-xl'>
                     <label className="font-rubik">Your Name</label>
                     <input 
-                        className='border-1 rounded-md border-neon-3 py-4 px-3 font-inter md:text-lg' 
+                        className='
+                            border-1 rounded-md border-neon-3 py-4 px-3 font-inter md:text-lg
+                            shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
+                            hover:border-neon-1 hover:text-neon-glow-3  hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                        ' 
                         placeholder="Your Name"
                         type="text" 
                         name="name" 
@@ -55,7 +59,11 @@ const ContactForm = () =>{
                 <div className='flex flex-col flex-1 gap-y-2 text-sm md:text-xl'>
                     <label className="font-rubik">Email</label>
                     <input 
-                        className='border-1 rounded-md border-neon-3 py-4 px-3 font-inter md:text-lg' 
+                        className='
+                            border-1 rounded-md border-neon-3 py-4 px-3 font-inter md:text-lg
+                            shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
+                            hover:border-neon-1 hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                        ' 
                         placeholder="email@example.com"
                         type="email" 
                         name="email" 
@@ -68,7 +76,11 @@ const ContactForm = () =>{
                     <label className="font-rubik">Message</label>
                     <textarea
                         rows={5}
-                        className='border-1 w-full rounded-md border-neon-3 py-4 px-3 font-inter md:text-lg' 
+                        className='
+                            border-1 w-full rounded-md border-neon-3 py-4 px-3 font-inter md:text-lg
+                            shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                            hover:border-neon-1 hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                        ' 
                         placeholder="Write message..."
                         name="message" 
                         required
@@ -89,8 +101,10 @@ const ContactForm = () =>{
                     className='
                         flex items-center justify-center gap-2
                         border-1 border-neon-3 rounded-lg text-sm md:text-base font-semibold py-2 w-38 md:w-44
-                        hover:text-neon-2 hover:border-neon-2 cursor-pointer
                         disabled:opacity-50 disabled:cursor-default disabled:cursor-not-alloweda
+                        cursor-pointer shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
+                        hover:border-neon-1 hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                        transition-shadow duration-100 ease-in-out
                     '
                     type="submit"
                     disabled={isLoading}
@@ -98,7 +112,7 @@ const ContactForm = () =>{
                     {isLoading ? (
                         <>
                             <svg 
-                                className="animate-spin h-5 w-5" 
+                                className="animate-spin h-5 w-5 " 
                                 xmlns="http://www.w3.org/2000/svg" 
                                 fill="none" 
                                 viewBox="0 0 24 24"
