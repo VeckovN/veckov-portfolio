@@ -1,3 +1,7 @@
+'use client';
+
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 import JSIcon from '../../public/images/TechIcons/js.svg';
 import TSIcon from '../../public/images/TechIcons/typescript.svg';
 import ReactIcon from '../../public/images/TechIcons/react.svg';
@@ -30,17 +34,23 @@ import FigmaIcon from '../../public/images/TechIcons/figma.svg';
 import TechCategory from '../ui/TechCategory';
 
 const Tech = () =>{
+
+    const { ref: titleTextRef, isVisible: isTitleTextVisible } = useScrollAnimation({ threshold: .2 });
+
     return (
-        <section id='skills' className="pt-15 w-full h-[1095px] bg-linear-to-b from-section-gradient-1  to-section-gradient-2 text-white">
-            {/* <h1 className="text-center text-white text-3xl">Technologies i use</h1> */}
-        
-            <div className='bg-red-500a px-6 md:px-10 lg:px-2a max-w-[1280px] w-full mx-auto h-full md:px-1a flex flex-col items-center lg:items-start mx-autoa'>
-                <h2 className='mb-12 xl:mb-8 text-3xl md:text-4xl xl:text-5xl text-center w-full font-rubik font-bold'>
+        <section id='skills' className="py-10 sm:pb-15 md:pb-30 w-full bg-linear-to-b from-section-gradient-1  to-section-gradient-2 text-white">
+
+            <div className='px-6 md:px-10 lg:px-2a max-w-[1280px] w-full mx-auto h-full flex flex-col items-center lg:items-start'>
+                <h2 
+                    ref={titleTextRef} 
+                    className={`
+                        mb-12 xl:mb-8 text-3xl md:text-4xl xl:text-5xl text-center w-full font-rubik font-bold
+                        ${isTitleTextVisible ? 'animate-[slide-down_.3s_ease-in_forwards]' : 'opacity-0'}    
+                    `}
+                >
                     Technologies I Use
                 </h2>
 
-                {/* <div className='w-full flex flex-col gap-y-2 xs:gap-y-5 md:gap-y-13'> */}
-                {/* <div className='w-full h-full grid grid-cols-1 grid-rows-4 gap-y-5a'> */}
                 <div className='
                     xl:py-10
                     w-full
