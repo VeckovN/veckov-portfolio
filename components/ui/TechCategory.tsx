@@ -1,5 +1,6 @@
 import TechIcon from "./TechIcon";
 import { StaticImageData } from "next/dist/shared/lib/get-img-props";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 interface TechCategoryProps {
     title: string;
@@ -7,11 +8,14 @@ interface TechCategoryProps {
 }
 
 const TechCategory = ({title, items}: TechCategoryProps) =>{
+
+    const { ref: categoryRef, isVisible: isCategoryVisible } = useScrollAnimation({ threshold: .2 });
+    
     return(
-        <div className='relative flex w-full justify-start items-start pl-6 sm:pl-14a md:pl-16a lg:pl-20a'>
+        <div ref={categoryRef} className='relative flex w-full justify-start items-start pl-6'>
             {/* origin-* is applied, any subsequent transformations (I have 'rotate') applied to the element */}
             <h3 className='
-                absolute left-0a top-0 rotate-90 origin-top-left
+                absolute top-0 rotate-90 origin-top-left
                 font-rubik text-xl md:text-2xl xl:text-3xl font-bold whitespace-nowrap tracking-wider
             '>
                 {title}
@@ -27,8 +31,10 @@ const TechCategory = ({title, items}: TechCategoryProps) =>{
                     gap-x-5 
                     gap-y-4 
                 '>
-                {items.map((tech) => (
+                {items.map((tech, index) => (
                     <TechIcon
+                        index={index}
+                        isVisible={isCategoryVisible}
                         key={tech.title}
                         title={tech.title}
                         icon={tech.icon}

@@ -1,30 +1,53 @@
+'use client';
 import EmailIcon from "@/public/images/Contact/Email.svg";
 import LocationIcon from "@/public/images/Contact/location.svg"; 
 import LinkedinIcon from "@/public/images/Contact/contactLinkedin.svg"; 
 import GithubIcon from "@/components/ui/GithubIcon";
 import Image from "next/image";
 import ContactForm from "@/components/ui/ContactForm";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const Contact = () =>{
+
+    const { ref: titleTextRef, isVisible: isTitleTextVisible } = useScrollAnimation({ threshold: 0 });
+    const { ref: infoContainerRef, isVisible: isInfoContainerVisible } = useScrollAnimation({ threshold: .2});
+    const { ref: contactContainerRef, isVisible: isContactContainerVisible } = useScrollAnimation({ threshold: .4});
+
     return(
-        <section id="contact" className='py-10 sm:py-15 md:py-30pt-15 pb-10 w-full mx-auto flex flex-col items-center xl:items-start bg-about text-white'>
+        <section id="contact" className='pt-10 pb-10 sm:py-15 md:py-30 w-full mx-auto flex flex-col items-center xl:items-start bg-about text-white'>
         
-            <div className='bg-red-500a px-6 md:px-10 xl:px-2a max-w-[1280px] w-full mx-auto flex flex-col items-center mx-autoa'>
+            <div className='px-6 md:px-10 xl:px-2a max-w-[1280px] w-full mx-auto flex flex-col items-center'>
 
                 <div className='px-3 pb-6 md:px-5 w-full'>
-                    <h2 className='mb-5 xl:mb-8 text-3xl md:text-4xl xl:text-5xl text-center w-full font-rubik font-bold'>
+                    <h2 
+                        ref={titleTextRef} 
+                        className={`
+                            mb-5 xl:mb-8 text-3xl md:text-4xl xl:text-5xl text-center w-full font-rubik font-bold
+                            ${isTitleTextVisible ? 'animate-[slide-down-close_.3s_ease-in_forwards]' : 'opacity-0'}
+                        `}
+                    >
                         Get In Touch
                     </h2>
 
-                    <div className='mb-8 md:text-xl xl:text-2xl text-center'>
+                    <div
+                        className={`
+                            mb-8 md:text-xl xl:text-2xl text-center
+                            ${isTitleTextVisible ? 'animate-[slide-up-close_.3s_ease-in_forwards] delay-75' : 'opacity-0'}
+                        `}
+                    >
                         I’m open to full-time roles, collaborations, and selected freelance projects.
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col xl:flex-row gap-x-6 bg-blue-950a max-w-[550px] md:max-w-[720px] xl:max-w-none xl:mt-5">
+                <div className="w-full flex flex-col xl:flex-row gap-x-6 bg-blue-950a max-w-[550px] md:max-w-[720px] xl:max-w-none xl:mt-5">            
                     
-                    <div className="w-full bg-red-500a flex flex-col gap-y-4 xl:gap-y-6 xl:mt-9 mx-auto">
-                        
+                    <div 
+                        ref={infoContainerRef} 
+                        className={`
+                            w-full bg-red-500a flex flex-col gap-y-4 xl:gap-y-6 xl:mt-9 mx-auto
+                            ${isInfoContainerVisible ? 'animate-[slide-down_.3s_ease-in_forwards] xl:animate-[slide-right_.3s_ease-in_forwards]' : 'opacity-0'}
+                        `}
+                    >
                         <a 
                             href="mailto:novakveckovdev@gmail.com?subject=Portfolio Contact"
                             className="
@@ -111,7 +134,13 @@ const Contact = () =>{
                         </div>
                     </div>
 
-                    <div className='w-full flex bg-red-300a mt-10 xl:mt-0'>
+                    <div
+                        ref={contactContainerRef} 
+                        className={`
+                            w-full flex mt-10 xl:mt-0
+                            ${isContactContainerVisible ? 'animate-[slide-up_.3s_ease-in_forwards] xl:animate-[slide-left_.3s_ease-in_forwards]' : 'opacity-0'}
+                        `}
+                    >
                         <ContactForm/>
                     </div>
 

@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import GithubIcon from "./GithubIcon";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 interface ProjectCardProps {
     title: string;
@@ -42,8 +43,16 @@ const ProjectCard = ({
     liveUrl
 }: ProjectCardProps) =>{
 
+    const { ref: projectContainerRef, isVisible: isProjectContainerVisible } = useScrollAnimation({ threshold: .2 });
+
     return (
-        <div className="max-w-[450px] md:max-w-[580px] min-h-[1000px]a  w-fulla h-full bg-red-100 flex rounded-t-xl flex-col">
+        <div 
+            ref={projectContainerRef} 
+            className={`
+                max-w-[450px] md:max-w-[580px] min-h-[1000px]a h-full flex rounded-t-xl flex-col
+                ${isProjectContainerVisible ? 'animate-[blur-slide-up_.3s_ease-in_forwards] delay-100' : 'opacity-0'}
+            `}
+        >
             <div className='relative rounded-xl'>
                 {/* include images for each breakpoint */}
                 <Image
@@ -54,24 +63,15 @@ const ProjectCard = ({
 
                 <div 
                     className='
-                        bg-about text-neon-1 absolute top-2 right-2 border-1 py-1 w-16 md:py-1.5a md:w-23 text-center font-rubik 
+                        bg-about text-neon-1 absolute top-2 right-2 border-1 py-1 w-16 md:w-23 text-center font-rubik 
                         text-[9px] md:text-[13px] ashadow-[inset_0px_0px_3px_1px_var(--color-neon-glow-project)] rounded-2xl 
                     '>
                     {projectSource}
                 </div>  
             </div>
 
-            {/* To ensure that all ProjectCard components in the same grid row 
-                visually align — especially the bottom action buttons — i use
-                flex-grow proportions (flex-1, flex-2, flex-4) on specific sections. 
-            
-                Taht makes the 'shorter' container that has more spaces been streacted to equal height ,
-                as bigger component at the same row and matching their sections
-            */}
-
            {/* flex-1 → lets the whole content block stretch so all cards match height */}
             <div className='flex-1 relative px-5 md:px-6 py-3 flex flex-col border-b border-x-1 rounded-b-xl border-neon-2 bg-project-card'>
-            {/* <div className=' flex-1 relative px-5 md:px-6 py-3 flex flex-col border-b border-x-1 rounded-b-xl border-neon-2 bg-project-card'> */}
                 <div className='absolute top-2 right-2 flex gap-x-2'>
                     {categoryList.map((el) => (
                         <div key={`${el}-category`} className='text-xs md:text-[13px] font-rubik font- border-1 border-hero-p rounded-xl px-3 py-1 text-center'>
@@ -99,7 +99,7 @@ const ProjectCard = ({
 
                 <div className='flex-1 mt-4 w-full h-full flex flex-col flex-wrap font-rubik'>
                     {/* Here want to keep width of this h4 children (not of parent container) -> i manually set w-20 but want to avoid it */}
-                    <div className='mb-2 w-full bg-red-100a w-20'>
+                    <div className='mb-2 w-full w-20'>
                         <h4 className='text-sm md:text-xl'>
                             Tech Stack
                         </h4> 
@@ -184,7 +184,7 @@ const ProjectCard = ({
                                     className='w-4 h-4 md:w-5 md:h-5 group-hover:text-glow-3 transition-colors duration-200'
                                 />
                             )}
-                            <div className='group-hover:text-neon-1a'>Source</div>
+                            <div>Source</div>
                         </a>
                         <Link
                             href={`/project/${title}`} 
