@@ -9,7 +9,7 @@ interface ProjectCardProps {
     shortDesc: string;
     techList: TechListInterface[];
     techMoreCount?: number;
-    projectSource:["Personal" | "Freelance" | "Client" | "OpenSource"],
+    projectSource: string;
     categoryList: string[];
     listTitle: string;
     listItems: ProjectCardListItemProp[];
@@ -53,12 +53,19 @@ const ProjectCard = ({
                 ${isProjectContainerVisible ? 'animate-[blur-slide-up_.3s_ease-in_forwards] delay-100' : 'opacity-0'}
             `}
         >
-            <div className='relative rounded-xl'>
-                {/* include images for each breakpoint */}
+            <div className='relative overflow-hidden rounded-t-xl'>
                 <Image
                     src={image}
                     alt='Growiva'
-                    className="w-full h-full lg:min-h-[370px]"
+                    className="
+                        w-full 
+                        h-[300px] 
+                        md:h-[360px]
+                        lg:h-[370px] 
+                        lg:min-h-[370px]a
+                        object-cover 
+                        object-top 
+                        "
                 />
 
                 <div 
