@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import TreesSvg from '../../public/images/Trees.svg';
+import TreesSvg from '../ui/TreesSvg';
 
 const Hero = () => {
     const ScrollToProjectSection = () => {
@@ -20,17 +19,19 @@ const Hero = () => {
     }
 
     return (
-        <section id='home' className='relative min-h-screen w-full bg-hero'>
-            <div className='absolute bottom-0 w-full max-h-[320px]a'>
-                {/* <Image
-                    priority
-                    className='w-full'
-                    src={TreesSvg}
-                    alt="TreesSvg"
-                /> */}
-            </div>
+        <section id='home' className='relative min-h-screen w-full bg-hero  overflow-hidden'>
+            <div
+            className="
+                absolute -bottom-1 left-0 right-0
+                w-full
+                pointer-events-none
+                z-10
+                "
+            >
+            <TreesSvg />
+        </div>
 
-            <div className='relative px-6 md:px-10 max-w-[1280px] w-full mx-auto h-full pt-[32vh] sm:pt-[30vh]'>
+            <div className='relative z-20 px-6 md:px-10 max-w-[1280px] w-full mx-auto h-full pt-[32vh] sm:pt-[30vh]'>
                 {/* Github Glow Icon */}
                 <a 
                     href='https://github.com/VeckovN' 
@@ -91,6 +92,7 @@ const Hero = () => {
                 <div className='
                         flex flex-col items-center text-center font-inter
                         md:items-start md:px-10a mx:px-0a
+                        animation: fade-in var(--animate-duration-normal) ease-out;
                     '>
                     <h3 className='pb-2 text-4xl xl:text-5xl text-white font-bold drop-shadow-[0_0_1px_var(--color-neon-2)]'>Hi, I'm</h3>
                     <h2 className='text-[42px] leading-[1.0] text-5xla xl:text-6xl text-white font-rubik font-bold drop-shadow-[0_0_3px_var(--color-neon-2)]'> Novak Veckov</h2>
