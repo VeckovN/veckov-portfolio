@@ -14,7 +14,7 @@ const Contact = () =>{
     const { ref: contactContainerRef, isVisible: isContactContainerVisible } = useScrollAnimation({ threshold: .4});
 
     return(
-        <section id="contact" className='pt-10 pb-10 sm:py-15 md:py-30 w-full mx-auto flex flex-col items-center xl:items-start bg-about text-white'>
+        <section id="contact" className='pt-10 pb-10 sm:py-15 md:py-20 w-full mx-auto flex flex-col items-center xl:items-start bg-about text-white'>
         
             <div className='px-6 md:px-10 xl:px-2a max-w-[1280px] w-full mx-auto flex flex-col items-center'>
 
