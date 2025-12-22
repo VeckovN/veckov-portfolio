@@ -54,7 +54,7 @@ const About = () => {
                 <div ref={aboutMeInfoRef} 
                     className={`mt-10 flex flex-col-reverse md:flex-row items-center gap-y-10 gap-x-6 text-base`}
                     >
-                    <div className={isAboutMeInfoVisible ? 'animate-[slide-down_.3s_ease-in_forwards] md:animate-[slide-right_.3s_ease-in_forwards]' : 'opacity-0'}>
+                    <div className={isAboutMeInfoVisible ? 'animate-[slide-up_.3s_ease-in_forwards] md:animate-[slide-right_.3s_ease-in_forwards]' : 'opacity-0'}>
                         <Image
                             src={PersonalImage}
                             alt='personalImage'
@@ -65,7 +65,7 @@ const About = () => {
                     <div 
                         className={`
                             bg-red-600a max-w-[500px] lg:max-w-[700px] flex flex-col gap-y-3 font-inter text-base lg:text-xl
-                            ${isAboutMeInfoVisible ? 'animate-[slide-up_.3s_ease-in_forwards] md:animate-[slide-left_.3s_ease-in_forwards]' : 'opacity-0'}
+                            ${isAboutMeInfoVisible ? 'animate-[slide-down_.3s_ease-in_forwards] md:animate-[slide-left_.3s_ease-in_forwards]' : 'opacity-0'}
                         `}
                     >
                         <p>I'm a Full-Stack Developer based in Niš, Serbia, 
@@ -108,7 +108,7 @@ const About = () => {
                                             key={year}
                                             className={`
                                                 px-5 py-1 border-1 rounded-2xl
-                                                font-rubik font-bold text-[10px] md:text-xs lg:text-sm
+                                                font-rubik font-bold text-xs lg:text-sm
                                                 transition-all duration-200
                                                 ${disabled 
                                                     ? 'border-gray-500 text-gray-500 opacity-90 cursor-not-allowed' 
