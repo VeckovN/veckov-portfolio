@@ -160,7 +160,7 @@ const ProjectCard = ({
                     </div>
 
                     <button className='
-                        mt-2 ml-2 px-2 py-1 md:py-[6px] w-16 md:w-22 text-[9px] md:text-[13px] 
+                        mt-2 ml-2 px-2 py-1 md:py-[6px] w-18 md:w-22 text-[10px] md:text-[13px] 
                         font-rubik font-medium border-1 border-white rounded-2xl cursor-pointer
                         hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
                         transition-shadow transition-colors duration-100 ease-in-out 
@@ -172,15 +172,15 @@ const ProjectCard = ({
                 {/* flex-1 → keeps button row at the bottom without stretching */}
                 <div className='flex-1'>
                      {/* GlowLine */}
-                    <div className='mt-3 md:mt-4 w-full h-[1px] bg-white shadow-[0px_1px_5px_1px_var(--color-neon-glow-project)]'></div>
+                    <div className='mt-4 md:mt-4 w-full h-[1px] bg-white shadow-[0px_1px_5px_1px_var(--color-neon-glow-project)]'></div>
                 
-                    <div className="flex-1 mt-3 md:mt-4 w-full flex justify-between font-rubik">
+                    <div className="flex-1 mt-4 md:mt-4 w-full flex justify-between font-rubik">
                         <a 
                             href={githubUrl}
                             target="_blank"
                             className={`
                                 ${githubUrl ? 'visible' : 'invisible'} 
-                                text-[9px] md:text-[13px] font-bold flex gap-x-1 items-center border-1 border-neon1
+                                text-xs  md:text-[13px] font-bold flex gap-x-1 items-center border-1 border-neon1
                                 px-1 py-1 md:px-2 md:py-2 rounded-md cursor-pointer group
                                 hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
                                 transition-shadow transition-colors duration-100 ease-in-out 
@@ -196,8 +196,8 @@ const ProjectCard = ({
                         <Link
                             href={`/project/${title}`} 
                             className="
-                                text-[9px] md:text-[14px] font-bold flex gap-x-1 items-center 
-                                border-1 px-5 py-1 md:px-8 md:py-2 rounded-md cursor-pointer
+                                text-xs md:text-[14px] font-semibold flex gap-x-1 items-center 
+                                border-1 px-3 py-[6px] md:px-8 sm:py-[7px]a md:py-2 rounded-md cursor-pointer
                                 hover:text-neon-glow-3 hover:shadow-[0px_0px_10px_1px_var(--color-neon-glow-project)]
                                 transition-shadow transition-colors duration-100 ease-in-out
                             "
@@ -210,7 +210,7 @@ const ProjectCard = ({
                             target="_blank"
                             className={`
                                 ${liveUrl ? 'visible' : 'invisible'}  
-                                text-[9px] md:text-[13px] font-bold flex gap-x-1 
+                                text-xs md:text-[13px] font-bold flex gap-x-1 
                                 items-center border-1 border-neon1 px-4 py-1 rounded-md cursor-pointer
                                 hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
                                 transition-shadow transition-colors duration-100 ease-in-out 
