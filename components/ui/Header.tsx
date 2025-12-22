@@ -17,28 +17,38 @@ const Header = () => {
     ]
 
     const ScrollToSection = (sectionId: string) => {
-        //Direct dom manipulation didn't recommended but
-        //to keep page.tsx Server Compoennt it's common Next.js Patter for this scenario
         const element = document.getElementById(sectionId);
-        const header = document.getElementById('header');
-
         if(!element) return;
 
-        setIsMobileMenuOpen(false);
+        const doScroll = () => {
+            const header = document.getElementById('header');
+            //For all other sections the header height must be calculated on scroll position
+            //The moblie nav will have '0' beacause it doesn't containes 'header' id as prop
+            const headerHeight = header ? header.offsetHeight : 0;
+            const elementTop = element.getBoundingClientRect().top + window.scrollY;
+            
+            if(sectionId === 'about'){
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
+     
+            window.scrollTo({
+                top: elementTop - headerHeight,  
+                behavior: "smooth",
+            });
 
-        if(sectionId === 'about'){
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            return;
         }
-
-        //For all other sections the header height must be calculated on scroll position
-        const headerHeight = header ? header.offsetHeight : 0; 
-        const elementTop = element.getBoundingClientRect().top + window.scrollY;
         
-        window.scrollTo({
-            top: elementTop - headerHeight,  
-            behavior: "smooth",
-        });
+        if(isMobileMenuOpen){
+            setIsMobileMenuOpen(false);
+            ///Wait on moble menu animation / layout flush
+            requestAnimationFrame(() =>{
+                requestAnimationFrame(doScroll);
+            })
+        }
+        else{
+            doScroll();
+        }
         
     }
 
@@ -71,8 +81,6 @@ const Header = () => {
 
     },[]);
 
-    console.log("is FADEE OUTT: ",fadeOut);
-
     useEffect(() => {
         const about = document.getElementById("about");
         if (!about) return;
@@ -85,8 +93,6 @@ const Header = () => {
         function handleScroll() {
             const scrollPos = window.scrollY;
     
-            console.log("ScrollPos:" ,scrollPos);
-            console.log("aboutTop:" ,aboutTop);
             // console.log("fadeOut:" ,fadeOut);
 
             //The prbolme is there scrtollPos 
@@ -98,7 +104,7 @@ const Header = () => {
             } else {
 
                 if(isVisible && !fadeOut){
-                    console.log("FADE OUT: ", fadeOut);
+                    // console.log("FADE OUT: ", fadeOut);
                     setFadeOut(true);
                     setTimeout(() => {
                         setIsVisible(false);
