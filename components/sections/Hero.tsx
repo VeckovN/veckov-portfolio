@@ -17,26 +17,21 @@ const Hero = () => {
             behavior: "smooth",
         });        
     }
+    
 
     return (
-        <section id='home' className='relative min-h-screen w-full bg-hero  overflow-hidden'>
-            <div
-            className="
-                absolute -bottom-1 left-0 right-0
-                w-full
-                pointer-events-none
-                z-10
-                "
-            >
-            <TreesSvg />
-        </div>
+        <section id='home' className='relative min-h-screen w-full bg-hero  overflow-hidden'>  
+
+            <div className="absolute w-full bottom-0 left-0 right-0 z-10 pointer-events-none">
+                <TreesSvg />
+            </div>
 
             <div className='relative z-20 px-6 md:px-10 max-w-[1280px] w-full mx-auto h-full pt-[32vh] sm:pt-[30vh]'>
                 {/* Github Glow Icon */}
                 <a 
                     href='https://github.com/VeckovN' 
                     target="_blank"
-                    className='absolute right-[2%] top-[10%] md:top-[14%]' 
+                    className='absolute right-[2%] top-[10%] md:top-[14%] opacity-0 animate-[fade-in_.8s_ease-in_forwards_200ms]' 
                 >
                     <svg 
                         className="h-38 w-38 md:h-40 lg:h-48 lg:w-48 " 
@@ -92,11 +87,11 @@ const Hero = () => {
                 <div className='
                         flex flex-col items-center text-center font-inter
                         md:items-start md:px-10a mx:px-0a
-                        animation: fade-in var(--animate-duration-normal) ease-out;
+                        animate-[fade-in_.5s_ease-in]a
                     '>
-                    <h3 className='pb-2 text-4xl xl:text-5xl text-white font-bold drop-shadow-[0_0_1px_var(--color-neon-2)]'>Hi, I'm</h3>
-                    <h2 className='text-[42px] leading-[1.0] text-5xla xl:text-6xl text-white font-rubik font-bold drop-shadow-[0_0_3px_var(--color-neon-2)]'> Novak Veckov</h2>
-                    <div className='md:hidden py-2 flex justify-center'>
+                    <h3 className='pb-2 text-4xl xl:text-5xl text-white font-bold drop-shadow-[0_0_1px_var(--color-neon-2)] opacity-0 animate-[fade-in_.5s_ease-in_forwards_75ms]'>Hi, I'm</h3>
+                    <h2 className='text-[42px] leading-[1.0] text-5xla xl:text-6xl text-white font-rubik font-bold drop-shadow-[0_0_3px_var(--color-neon-2)] opacity-0 animate-[fade-in_.5s_ease-in_forwards_100ms]'> Novak Veckov</h2>
+                    <div className='md:hidden py-2 flex justify-center opacity-0 animate-[fade-in_.5s_ease-in_forwards_150ms]'>
                         <div className='md:hidden'>
                             <div className='text-2xl font-bold text-white drop-shadow-[0_0_10px_var(--color-neon-2)]'>Full Stack Developer </div>                    
                             <p className="mt-1 text-center text-hero-p font-bold">
@@ -106,7 +101,7 @@ const Hero = () => {
 
                     </div>
 
-                    <div className='hidden md:flex flex-start max-w-[600px] xl:max-w-[800px]'>
+                    <div className='hidden md:flex flex-start max-w-[600px] xl:max-w-[800px] opacity-0 animate-[fade-in_.5s_ease-in_forwards_150ms]'>
                         <div className='py-1 text-2xl xl:text-3xl font-bold text-white text-start'>
                             <span className='drop-shadow-[0_0_10px_var(--color-neon-2)]'>Full Stack Developer.</span>  
                             <span className='ml-1 text-centera text-hero-p '> 
@@ -121,6 +116,7 @@ const Hero = () => {
                             md:text-sm md:mt-3 xl:text-base
                             cursor-pointer hover:text-neon-glow-3 hover:shadow-[0px_0px_10px_1px_var(--color-neon-glow-project)]
                             transition-shadow transition-colors duration-100 ease-in-out
+                            opacity-0 animate-[fade-in_.5s_ease-in_forwards_200ms]
                         '
                         onClick={() => ScrollToProjectSection()}
                         
