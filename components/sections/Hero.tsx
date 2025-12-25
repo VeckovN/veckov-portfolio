@@ -1,5 +1,6 @@
 'use client';
 
+import StarSky from '../ui/StarSky';
 import TreesSvg from '../ui/TreesSvg';
 
 const Hero = () => {
@@ -21,6 +22,10 @@ const Hero = () => {
 
     return (
         <section id='home' className='relative min-h-screen w-full bg-hero  overflow-hidden'>  
+
+            <div className='w-full h-full'>
+                <StarSky/>
+            </div>
 
             <div className="absolute w-full bottom-0 left-0 right-0 z-10 pointer-events-none">
                 <TreesSvg />
