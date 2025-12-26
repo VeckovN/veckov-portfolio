@@ -19,11 +19,14 @@ const Hero = () => {
         });        
     }
     
-
     return (
-        <section id='home' className='relative min-h-screen w-full bg-hero  overflow-hidden'>  
+        <section 
+            id='home' 
+            //'isolate' prevent StarSky canvas blend mode from affecting elements outside Hero section
+            className='relative min-h-screen w-full bg-hero  overflow-hidden isolate'
+        >  
 
-            <div className='w-full h-full'>
+            <div className='absolute inset-0 w-full h-full'>
                 <StarSky/>
             </div>
 
