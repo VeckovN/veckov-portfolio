@@ -26,11 +26,6 @@ const About = () => {
         <section id="about" className='bg-red-300a py-10 w-full mx-auto flex flex-col items-center xl:items-start bg-about text-white'>
             
             <div ref={aboutMeTextRef} className='px-6 md:px-10 max-w-[1280px] w-full mx-auto flex flex-col items-center lg:items-start'>
-                {/* <h2 className={`
-                    mb-10 lg:mb-14 text-3xl md:text-4xl xl:text-5xl font-rubik font-bold
-                    ${aboutMeText.isVisible ? 'animate-slide-down ': 'opacity-0'}
-                    `}
-                > */}
                 <h2 className={`
                     mb-10 lg:mb-14 text-3xl md:text-4xl xl:text-5xl font-rubik font-bold
                     ${isAboutMeTextVisible ? 'animate-[slide-down-close_.3s_ease-in_forwards] ': 'opacity-0'}
@@ -57,8 +52,8 @@ const About = () => {
                     <div className={isAboutMeInfoVisible ? 'animate-[slide-up_.3s_ease-in_forwards] md:animate-[slide-right_.3s_ease-in_forwards]' : 'opacity-0'}>
                         <Image
                             src={PersonalImage}
-                            alt='personalImage'
-                            className="h-fulla min-w-[220px] lg:w-[250px] rounded-xl"
+                            alt='Novak Veckov profile photo'
+                            className="min-w-[220px] max-w-[230px] lg:max-w-[260px] rounded-xl"
                         />
                     </div>
 
@@ -72,16 +67,17 @@ const About = () => {
                             finishing my Computer Science degree in 2026.
                         </p>
                         <p>
-                            I build web applications — the kind that handle real 
-                            complexity and actually ship.  I love the moment when a complex system
-                            finally licks together and works.
+                            I’m passionate about building real-world web applications — from idea to production.
+                            I actively work on personal projects, with some freelance experience, 
+                            focusing on turning concepts into complete, working systems.
+
                         </p>
                         <p>
-                            Focused on full-stack web development, improving my skills by taking projects
-                            from concept to implementation.
+                            I enjoy understanding how systems work end to end — frontend, backend, 
+                            and infrastructure — and I’ve built full-stack applications independently.
                         </p>
                         <p>
-                            <span className='font-semibold'>What drives me?</span> I love the moment when a complex system finally  clicks together and works.
+                            <span className='font-semibold'>What drives me?</span> The satisfying moment when everything clicks and works together.
                         </p>
                     </div>
                 </div>
@@ -93,7 +89,7 @@ const About = () => {
                         ${isGithubCalendarVisible ? 'animate-[slide-right_.3s_ease-in_forwards] delay-150' : 'opacity-0'}
                     `}
                 >
-                    Constant in material and always improving
+                    Consistent and always improving
                 </h3>
 
                 <div ref={githubCalendarRef} className={`mt-4 bg-red-100a w-full ${isGithubCalendarVisible ? 'animate-[slide-up_.3s_ease-in_forwards]' : 'opacity-0'}`}>
