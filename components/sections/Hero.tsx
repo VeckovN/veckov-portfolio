@@ -98,10 +98,10 @@ const Hero = () => {
                         animate-[fade-in_.5s_ease-in]a
                     '>
                     <h3 className='pb-2 text-4xl xl:text-5xl text-white font-bold drop-shadow-[0_0_1px_var(--color-neon-2)] opacity-0 animate-[fade-in_.5s_ease-in_forwards_75ms]'>Hi, I'm</h3>
-                    <h2 className='text-[42px] leading-[1.0] text-5xla xl:text-6xl text-white font-rubik font-bold drop-shadow-[0_0_3px_var(--color-neon-2)] opacity-0 animate-[fade-in_.5s_ease-in_forwards_100ms]'> Novak Veckov</h2>
+                    <h1 className='text-[42px] leading-[1.0] text-5xla xl:text-6xl text-white font-rubik font-bold drop-shadow-[0_0_3px_var(--color-neon-2)] opacity-0 animate-[fade-in_.5s_ease-in_forwards_100ms]'> Novak Veckov</h1>
                     <div className='md:hidden py-2 flex justify-center opacity-0 animate-[fade-in_.5s_ease-in_forwards_150ms]'>
                         <div className='md:hidden'>
-                            <div className='text-2xl font-bold text-white drop-shadow-[0_0_10px_var(--color-neon-2)]'>Full Stack Developer </div>                    
+                            <h2 className='text-2xl font-bold text-white drop-shadow-[0_0_10px_var(--color-neon-2)]'>Full Stack Developer </h2>                    
                             <p className="mt-1 text-center text-hero-p font-bold">
                                 I build production-ready web  applications with modern technologies.
                             </p>
