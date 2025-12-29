@@ -69,7 +69,7 @@ const StarSky = ({
 
         const drawStar = (x: number, y: number, brightness: number) => {
             context.fillStyle = `rgba(${starColorRGB[0]}, ${starColorRGB[1]}, ${starColorRGB[2]}, ${brightness})`;
-            context.fillRect(Math.floor(x), Math.floor(y), 1.6, 1.6);
+            context.fillRect(Math.floor(x), Math.floor(y), 1.3, 1.3);
         };
 
         let lastTime: number = 0;
