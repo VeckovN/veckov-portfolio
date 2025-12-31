@@ -21,6 +21,7 @@ import MongodbIcon from "@/public/images/TechIcons/mongodb.svg";
 export const projects = [
     {
         title: "Growvia",
+        slug: "growvia",
         subTitle: "Microservice with Event Driven Design",
         shortDesc:
             "A modern multi-vendor e-commerce marketplace connecting local farmers with consumers.",
@@ -62,6 +63,7 @@ export const projects = [
 
     {
         title: "HomeAssistant",
+        slug: "homeassistant",
         subTitle: "Real-time job-matching platform",
         shortDesc: "Clients and houseworkers connect instantly using live chat and filtering.",
         techList: [
@@ -102,6 +104,7 @@ export const projects = [
 
     {
         title: "FreshOrder",
+        slug: "freshorder",
         subTitle: "Food ordering system with admin panel",
         shortDesc: "A full-stack food ordering app with client ordering and admin management..",
         techList: [

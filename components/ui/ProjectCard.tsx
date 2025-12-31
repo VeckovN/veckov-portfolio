@@ -5,6 +5,7 @@ import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 interface ProjectCardProps {
     title: string;
+    slug: string;
     subTitle: string;
     shortDesc: string;
     techList: TechListInterface[];
@@ -30,6 +31,7 @@ interface ProjectCardListItemProp {
 
 const ProjectCard = ({
     title,
+    slug,
     subTitle,
     shortDesc,
     techList,
@@ -194,7 +196,7 @@ const ProjectCard = ({
                             <div>Source</div>
                         </a>
                         <Link
-                            href={`/project/${title}`} 
+                            href={`/project/${slug}`} 
                             className="
                                 text-xs md:text-[14px] font-semibold flex gap-x-1 items-center 
                                 border-1 px-3 py-[6px] md:px-8 sm:py-[7px]a md:py-2 rounded-md cursor-pointer
