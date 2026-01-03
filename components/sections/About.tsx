@@ -11,7 +11,7 @@ const About = () => {
     const [selectedYear, setSelectedYear] = useState(2025);
 
     const yearButtons = [
-        {year: 2026, disabled: true},
+        {year: 2026, disabled: false},
         {year: 2025, disabled: false},
         {year: 2024, disabled: false},
         {year: 2023, disabled: false}
