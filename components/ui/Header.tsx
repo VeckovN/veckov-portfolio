@@ -165,7 +165,7 @@ const Header = () => {
         <header 
             id='header'
             className={`
-                top-0 left-0 w-full text-white z-30
+                animate-slide-down top-0 left-0 w-full text-white z-30
                 ${isVisible 
                     ? 
                         `animate-slide-down fixed bg-about shadow-[0px_2px_10px_0px_var(--color-neon-glow-3)]
