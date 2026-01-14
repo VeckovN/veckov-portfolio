@@ -48,6 +48,60 @@
 
 /* Keyframes */
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide Animations */
 @keyframes slide-up {
     from {
         opacity: 0;
@@ -115,187 +169,6 @@
 }
 
 
-@keyframes neon-blink {
-    0%, 70% {
-        box-shadow: inset 0px 0px 6px 1px var(--color-neon-inset);
-        filter: drop-shadow(0 0 0px transparent);
-    }
-    95% {
-        box-shadow: inset 0px 0px 9px 2px var(--color-neon-inset);
-        filter: drop-shadow(0 0 1px var(--color-neon-2));
-    }
-    100% {
-        box-shadow: inset 0px 0px 6px 1px var(--color-neon-inset);
-        filter: drop-shadow(0 0 0px transparent);
-    }
-}
-
-@utility animate-slide-up {
-    /* animation: slide-up var(--animate-duration-normal) ease-out; */
-    animation: slide-up var(--animate-duration-fast) ease-out;
-}
-
-@utility animate-slide-down {
-    animation: slide-down var(--animate-duration-normal) ease-out;
-}
-
-
-/* Other animations:  */
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fade-in-down {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fade-in-left {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fade-in-right {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Slide Animations */
-@keyframes slide-up {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slide-down {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slide-left {
-    from {
-        opacity: 0;
-        transform: translateX(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slide-right {
-    from {
-        opacity: 0;
-        transform: translateX(-60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Scale Animations */
-@keyframes scale-in {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes scale-up {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-@keyframes zoom-in {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Flip Animations */
-@keyframes flip-in-x {
-    from {
-        opacity: 0;
-        transform: perspective(1000px) rotateX(-90deg);
-    }
-    to {
-        opacity: 1;
-        transform: perspective(1000px) rotateX(0);
-    }
-}
-
-@keyframes flip-in-y {
-    from {
-        opacity: 0;
-        transform: perspective(1000px) rotateY(-90deg);
-    }
-    to {
-        opacity: 1;
-        transform: perspective(1000px) rotateY(0);
-    }
-}
-
 /* Blur Animations */
 @keyframes blur-in {
     from {
@@ -354,47 +227,7 @@
     }
 }
 
-@keyframes scale-out {
-    from {
-        opacity: 1;
-        transform: scale(1);
-    }
-    to {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-}
 
-/* continous (infinity) animations */
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes bounce-subtle {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        opacity: 1;
-        filter: drop-shadow(0 0 5px currentColor);
-    }
-    50% {
-        opacity: 0.8;
-        filter: drop-shadow(0 0 15px currentColor);
-    }
-}
 
 @keyframes gradient-shift {
     0%, 100% {
@@ -405,25 +238,27 @@
     }
 }
 
-@keyframes rotate-slow {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
 
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
+@keyframes neon-blink {
+    0%, 70% {
+        box-shadow: inset 0px 0px 6px 1px var(--color-neon-inset);
+        filter: drop-shadow(0 0 0px transparent);
+    }
+    95% {
+        box-shadow: inset 0px 0px 9px 2px var(--color-neon-inset);
+        filter: drop-shadow(0 0 1px var(--color-neon-2));
     }
     100% {
-        background-position: 200% 0;
+        box-shadow: inset 0px 0px 6px 1px var(--color-neon-inset);
+        filter: drop-shadow(0 0 0px transparent);
     }
 }
 
-
 @utility animate-slide-up {
-    animation: slide-up var(--animate-duration-fast) ease-in;
+    /* animation: slide-up var(--animate-duration-normal) ease-out; */
+    animation: slide-up var(--animate-duration-fast) ease-out;
+}
+
+@utility animate-slide-down {
+    animation: slide-down var(--animate-duration-normal) ease-out;
 }
