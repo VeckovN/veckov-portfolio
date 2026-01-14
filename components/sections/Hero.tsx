@@ -35,10 +35,11 @@ const Hero = () => {
             </div>
 
             <div className='relative z-20 px-6 md:px-10 max-w-[1280px] w-full mx-auto h-full pt-[32vh] sm:pt-[30vh]'>
-                {/* Github Glow Icon */}
                 <a 
                     href='https://github.com/VeckovN' 
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open my GitHub profile"
                     className='absolute right-[2%] top-[10%] md:top-[14%] opacity-0 animate-[fade-in_.8s_ease-in_forwards_200ms]' 
                 >
                     <svg 

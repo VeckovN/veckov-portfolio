@@ -103,6 +103,7 @@ const Contact = () =>{
                             <a 
                                 href='https://github.com/VeckovN'
                                 target="_blank"
+                                aria-label="Visit my Github profile"
                                 className="
                                     p-1 border-1 border-neon-3 rounded-md cursor-pointer
                                     shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
@@ -118,6 +119,7 @@ const Contact = () =>{
                             <a 
                                 href='https://rs.linkedin.com/in/novak-veckov-4299aa1a1'
                                 target="_blank"
+                                 aria-label="Visit my LinkedIn profile"
                                 className="
                                     p-1 border-1 border-neon-3 rounded-md cursor-pointer
                                     shadow-[0px_0px_6px_1px_var(--color-neon-glow-project)]
