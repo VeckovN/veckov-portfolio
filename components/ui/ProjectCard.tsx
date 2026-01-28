@@ -52,7 +52,7 @@ const ProjectCard = ({
             ref={projectContainerRef} 
             className={`
                 max-w-[450px] md:max-w-[580px] min-h-[1000px]a h-full flex rounded-t-xl flex-col
-                ${isProjectContainerVisible ? 'animate-[blur-slide-up_.3s_ease-in_forwards] delay-100' : 'opacity-0'}
+                ${isProjectContainerVisible ? 'animate-[slide-up_.3s_ease-in_forwards] delay-100' : 'opacity-0'}
             `}
         >
             <div className='relative overflow-hidden rounded-t-xl'>
