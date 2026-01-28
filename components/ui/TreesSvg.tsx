@@ -2,7 +2,7 @@ const TreesSvg = () => {
 
     return (
         <svg
-           className="w-full h-auto block opacity-0 animate-[fade-in_.8s_ease-in_forwards_300ms]"
+           className="w-full h-auto block opacity-0 animate-[fade-in_.6s_ease-in_forwards_200ms]"
             viewBox="0 0 1917 569"
             preserveAspectRatio="xMidYMax slice"
             xmlns="http://www.w3.org/2000/svg"
