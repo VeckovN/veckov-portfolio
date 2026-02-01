@@ -43,7 +43,7 @@ const About = () => {
                     <AboutCard category="location" context="Niš, Serbia"/>
                     <AboutCard category="university" context="Faculty of Electronic Engineering CS Department"/>
                     <AboutCard category="focus" context="Full-Stack Developer"/>
-                    <AboutCard category="interests" context="Web Dev, Architecture"/>
+                    <AboutCard category="interests" context="Web Dev, System Design & Architecture"/>
                 </div>
 
                 <div ref={aboutMeInfoRef} 
