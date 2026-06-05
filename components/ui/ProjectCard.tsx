@@ -161,14 +161,17 @@ const ProjectCard = ({
                         
                     </div>
 
-                    <button className='
-                        mt-2 ml-2 px-2 py-1 md:py-[6px] w-18 md:w-22 text-[10px] md:text-[13px] 
-                        font-rubik font-medium border-1 border-white rounded-2xl cursor-pointer
-                        hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
-                        transition-shadow transition-colors duration-100 ease-in-out 
-                    '>
-                        Find more
-                    </button>  
+                    <Link 
+                        href={`/project/${slug}`} 
+                        className='
+                            mt-2 ml-2 px-2 py-1 md:py-[6px] w-18 md:w-22 text-[10px] md:text-[13px] 
+                            font-rubik font-medium border-1 border-white rounded-2xl cursor-pointer
+                            hover:text-neon-glow-3 hover:shadow-[0px_0px_5px_1px_var(--color-neon-glow-project)]
+                             flex items-center justify-center
+                            transition-shadow transition-colors duration-100 ease-in-out 
+                        '>
+                            Find more
+                    </Link>  
                 </div>
 
                 {/* flex-1 → keeps button row at the bottom without stretching */}
