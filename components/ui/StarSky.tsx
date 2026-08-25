@@ -19,8 +19,8 @@ interface Star {
 
 const StarSky = ({
     starColorRGB = [255, 255, 255], 
-    starCount= 400, 
-    speedBlink = 0.05,
+    starCount= 500, 
+    speedBlink = 0.08,
 }: StarSkyProps) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameRef = useRef<number>(null);
@@ -44,7 +44,7 @@ const StarSky = ({
                     x: Math.random() * w,
                     y: Math.random() * h,
                     z: Math.random() * 500,
-                    brightness: 0.3, // Default 40% brightness
+                    brightness: 0.4, // Default 40% brightness
                     blinkSpeed: Math.random() * speedBlink * 2 + speedBlink, // Random blink speed
                     blinkPhase: Math.random() * Math.PI * 2, // Random starting phase
                 });
