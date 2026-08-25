@@ -31,9 +31,8 @@ const TechCategory = ({title, items}: TechCategoryProps) =>{
                     gap-x-5 
                     gap-y-4 
                 '>
-                {items.map((tech, index) => (
+                {items.map((tech) => (
                     <TechIcon
-                        index={index}
                         isVisible={isCategoryVisible}
                         key={tech.title}
                         title={tech.title}
